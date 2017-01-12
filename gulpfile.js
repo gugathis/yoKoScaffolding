@@ -38,12 +38,9 @@ gulp.task('js', function () {
 
     // Concatenates CSS files, rewrites relative paths to Bootstrap fonts, copies Bootstrap fonts
 gulp.task('css', function () {
-    var bowerCss = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.min.css')
-            .pipe(replace(/url\((')?\.\.\/fonts\//g, 'url($1fonts/')),
-        appCss = gulp.src('src/css/*.css'),
-        combinedCss = es.concat(bowerCss, appCss).pipe(concat('css.css')),
-        fontFiles = gulp.src('./node_modules/bootstrap/fonts/*', { base: './node_modules/bootstrap/components-bootstrap/' });
-    return es.concat(combinedCss, fontFiles)
+        var appCss = gulp.src('src/css/*.css'),
+        combinedCss = es.concat(appCss).pipe(concat('css.css'))
+    return es.concat(combinedCss)
         .pipe(gulp.dest('./dist/'));
 });
 
