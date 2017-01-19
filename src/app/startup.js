@@ -1,4 +1,4 @@
-define(['knockout', './router'], function(ko, router) {
+define(['knockout', './router', './app.js'], function(ko, router) {
 
   // Components can be packaged as AMD modules, such as the following:
   ko.components.register('nav-bar', { require: 'components/nav-bar/nav-bar' });
@@ -12,5 +12,6 @@ define(['knockout', './router'], function(ko, router) {
   // [Scaffolded component registrations will be inserted here. To retain this feature, don't remove this comment.]
 
   // Start the application
+  console.log(app);
   ko.applyBindings({ route: router.currentRoute });
 });
