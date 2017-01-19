@@ -44,6 +44,12 @@ gulp.task('css', function () {
         .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('fonts', function () {
+        var fonts = gulp.src('src/fonts/**/*')
+    return es.concat(fonts)
+        .pipe(gulp.dest('./fonts/'));
+});
+
 
 
 // Copies index.html, replacing <script> and <link> tags to reference production URLs
@@ -62,7 +68,7 @@ gulp.task('clean', function() {
         .pipe(clean());
 });
 
-gulp.task('default', ['html', 'js', 'css'], function(callback) {
+gulp.task('default', ['html', 'js', 'css', 'fonts'], function(callback) {
     callback();
     console.log('\nPlaced optimized files in ' + chalk.magenta('dist/\n'));
 });
